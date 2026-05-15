@@ -9,6 +9,7 @@ import { Loader2 } from "lucide-react";
 import { Button } from "@/components/shared/Button";
 import { LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { signOut } from "next-auth/react";
 
 export default function ProfilePage() {
   const [profile, setProfile] = useState(null);
@@ -42,9 +43,13 @@ export default function ProfilePage() {
       <div className="flex flex-col w-full max-w-4xl mx-auto">
         <ProfileStats user={profile?.user} />
         <RecentGames games={profile?.recent} />
-        
+
         <div className="mt-12 flex justify-center border-t border-neutral-800 pt-8">
-          <Button variant="danger" onClick={() => router.push("/")} className="gap-2 text-[10px] uppercase font-bold tracking-widest px-6 shadow-none">
+          <Button
+            variant="danger"
+            onClick={() => signOut({ callbackUrl: "/" })}
+            className="gap-2 text-[10px] uppercase font-bold tracking-widest px-6 shadow-none"
+          >
             <LogOut className="w-4 h-4" />
             Logout
           </Button>
