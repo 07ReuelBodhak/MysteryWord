@@ -14,19 +14,29 @@ import { signOut } from "next-auth/react";
 export default function ProfilePage() {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const router = useRouter();
 
   useEffect(() => {
     async function load() {
       try {
         const data = await getProfile();
+
         setProfile(data);
+      } catch (err) {
+        setError(err);
       } finally {
         setLoading(false);
       }
     }
+
     load();
   }, []);
+
+  if (error) {
+    throw error;
+  }
 
   if (loading) {
     return (
@@ -41,7 +51,7 @@ export default function ProfilePage() {
   return (
     <PageShell>
       <div className="flex flex-col w-full max-w-4xl mx-auto">
-        <ProfileStats user={profile?.user} />
+        <ProfileStats user={profile?.user} stats={profile?.stats} />
         <RecentGames games={profile?.recent} />
 
         <div className="mt-12 flex justify-center border-t border-neutral-800 pt-8">
