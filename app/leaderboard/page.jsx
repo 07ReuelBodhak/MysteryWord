@@ -30,8 +30,12 @@ export default function LeaderboardPage() {
             <Trophy className="w-8 h-8 text-white" />
           </div>
           <div>
-            <h1 className="text-4xl font-black italic uppercase tracking-tighter text-white">Leaderboard</h1>
-            <p className="text-neutral-500 text-sm font-medium">Top guessers in the arena.</p>
+            <h1 className="text-4xl font-black italic uppercase tracking-tighter text-white">
+              Leaderboard
+            </h1>
+            <p className="text-neutral-500 text-sm font-medium">
+              Top guessers in the arena.
+            </p>
           </div>
         </div>
 
