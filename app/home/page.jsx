@@ -62,7 +62,6 @@ export default function HomePage() {
     loadData();
   }, [session?.user?.discord_id, status]);
 
-  // Only show fullscreen loader on first page load
   if (initialLoading) {
     return (
       <PageShell>
