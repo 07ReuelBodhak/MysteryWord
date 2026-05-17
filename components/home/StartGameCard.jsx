@@ -18,12 +18,14 @@ export function StartGameCard({ className }) {
   };
 
   return (
-    <Card className={`flex flex-col items-center justify-center text-center p-8 border-neutral-800 bg-neutral-900/30 ${className}`}>
-      <Button 
-        size="lg" 
-        onClick={handleStart} 
-        disabled={isStarting} 
-        className="w-full py-4 bg-white text-black font-black uppercase text-sm rounded-xl hover:bg-neutral-200 transition-colors shadow-lg shadow-white/5 h-auto leading-normal"
+    <Card
+      className={`flex flex-col items-center justify-center text-center p-8 border-neutral-800 bg-neutral-900/30 ${className}`}
+    >
+      <Button
+        size="lg"
+        onClick={handleStart}
+        disabled={isStarting}
+        className="w-full py-4 cursor-pointer bg-white text-black font-black uppercase text-sm rounded-xl hover:bg-neutral-200 transition-colors shadow-lg shadow-white/5 h-auto leading-normal"
       >
         {isStarting ? <Loader2 className="w-5 h-5 animate-spin mr-2" /> : null}
         Start New Game
