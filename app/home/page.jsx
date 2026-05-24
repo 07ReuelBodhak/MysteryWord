@@ -83,7 +83,10 @@ export default function HomePage() {
 
         {/* Right Side */}
         <div className="flex flex-col gap-6">
-          <StartGameCard />
+          <StartGameCard
+            discord_id={session?.user?.discord_id}
+            username={session?.user?.username}
+          />
           <LeaderboardPreview leaderboard={leaderboard} />
         </div>
       </div>

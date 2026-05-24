@@ -8,9 +8,9 @@ import { Clock, HelpCircle, Users } from "lucide-react";
 export function ActiveSessionCard({ session }) {
   // Difficulty colors mapping
   const diffMap = {
-    "Easy": "easy",
-    "Medium": "medium",
-    "Hard": "hard"
+    Easy: "easy",
+    Medium: "medium",
+    Hard: "hard",
   };
 
   return (
@@ -18,12 +18,16 @@ export function ActiveSessionCard({ session }) {
       <div className="flex items-center gap-3">
         <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
         <div>
-          <span className="text-sm font-medium text-white block leading-none mb-1">{session.username}'s Game</span>
-          <span className="text-[10px] text-neutral-500 uppercase font-bold tracking-widest">{session.difficulty} • {session.questions} Qs</span>
+          <span className="text-sm font-medium text-white block leading-none mb-1">
+            {session.title}
+          </span>
+          <span className="text-[10px] text-neutral-500 uppercase font-bold tracking-widest">
+            {session.difficulty} • {session.questions_count} Qs
+          </span>
         </div>
       </div>
-      
-      <Link href={`/game/${session.id}`}>
+
+      <Link href={`/game/${session.session_id}`} className="ml-auto">
         <span className="text-[10px] px-3 py-1 font-bold rounded bg-neutral-800 hover:bg-neutral-700 text-white uppercase tracking-widest transition-colors">
           Watch
         </span>
