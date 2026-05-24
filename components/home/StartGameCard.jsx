@@ -7,14 +7,14 @@ import { startGame } from "@/lib/api";
 import { useRouter } from "next/navigation";
 import { Loader2, Play } from "lucide-react";
 
-export function StartGameCard({ className }) {
+export function StartGameCard({ className, discord_id, username }) {
   const [isStarting, setIsStarting] = useState(false);
   const router = useRouter();
 
   const handleStart = async () => {
     setIsStarting(true);
-    const result = await startGame();
-    router.push(`/game/${result.sessionId}`);
+    const result = await startGame({ discord_id, username });
+    router.push(`/game/${result.session_id}`);
   };
 
   return (

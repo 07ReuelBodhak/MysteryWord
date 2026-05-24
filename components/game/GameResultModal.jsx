@@ -14,7 +14,7 @@ export function GameResultModal({ result, word, onPlayAgain }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-      <motion.div 
+      <motion.div
         initial={{ scale: 0.9, opacity: 0, y: 20 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         className="bg-black border border-neutral-800 rounded-3xl p-8 max-w-md w-full text-center shadow-2xl shadow-white/5 relative overflow-hidden"
@@ -33,20 +33,28 @@ export function GameResultModal({ result, word, onPlayAgain }) {
             )}
           </div>
 
-          <h2 className={`text-4xl font-black mb-2 uppercase tracking-tight italic ${isWin ? 'text-white' : 'text-red-500'}`}>
+          <h2
+            className={`text-4xl font-black mb-2 uppercase tracking-tight italic ${isWin ? "text-white" : "text-red-500"}`}
+          >
             {isWin ? "You Won!" : "Game Over"}
           </h2>
-          
+
           <div className="bg-white/5 rounded-2xl p-6 py-8 w-full border border-white/10 my-6 flex flex-col items-center justify-center gap-2">
-            <p className="text-[10px] text-neutral-500 font-bold uppercase tracking-widest">The word was</p>
-            <p className="text-5xl font-black text-white uppercase tracking-tighter">{word}</p>
+            <p className="text-[10px] text-neutral-500 font-bold uppercase tracking-widest">
+              The word was
+            </p>
+            <p className="text-5xl font-black text-white uppercase tracking-tighter">
+              {word}
+            </p>
           </div>
 
           <div className="flex flex-col gap-3 w-full mt-2">
-            <Button size="lg" onClick={onPlayAgain} className="w-full">
-              Play Again
-            </Button>
-            <Button variant="ghost" size="lg" onClick={() => router.push("/home")} className="w-full text-neutral-500">
+            <Button
+              variant="ghost"
+              size="lg"
+              onClick={() => router.push("/home")}
+              className="w-full text-neutral-500"
+            >
               Return Home
             </Button>
           </div>
